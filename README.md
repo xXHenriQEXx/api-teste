@@ -1,4 +1,4 @@
-# api-teste-santander
+# api-teste.
 
 Boa tarde/dia/noite, para executar a api será necessário uma IDE de back-end e front-end depois de executar só acessar os links:
 front-end localhost:4200 ( página inicial )
