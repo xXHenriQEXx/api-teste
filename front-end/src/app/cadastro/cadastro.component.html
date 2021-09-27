@@ -1,0 +1,268 @@
+
+<body>
+
+  <head>
+    <title> Cadastro colaborador </title>
+
+</head>
+<html>
+<body>
+    <div class="box" >
+        <form [formGroup]="appForm" action="">
+            <fieldset>
+                <legend><b>Cadastro de colaborador</b></legend>
+                <br>
+                <div class="inputBox">
+                    <input formControlName = "firstname" type="text" name="nome" id="nome" class="inputUser" required>
+                    <label for="nome" class="labelInput">Nome </label>
+                </div><br>
+
+                <div class="inputBox">
+                  <input formControlName = "lastname" type="text" name="nome" id="nome" class="inputUser" required>
+                  <label for="nome" class="labelInput">Sobrenome </label>
+              </div><br>
+
+              <div class="inputBox">
+                <input formControlName = "office" type="text" name="nome" id="nome" class="inputUser" required>
+                <label for="nome" class="labelInput">Cargo </label>
+            </div><br>
+
+            <label  for="data_nascimento"><b>Data de Nascimento:</b></label>
+                <input formControlName = "dateofbirth" type="date" name="data_nascimento" id="data_nascimento" required>
+                <br>
+
+                <br>
+
+                <div class="inputBox">
+                  <input formControlName = "address" type="text" name="endereco" id="endereco" class="inputUser" required>
+                  <label for="endereco" class="labelInput">Endereço</label>
+              </div><br>
+
+              <div class="inputBox">
+                <input formControlName = "number" type="text" name="endereco" id="endereco" class="inputUser" required>
+                <label for="endereco" class="labelInput">Número</label>
+            </div><br>
+
+            <div class="inputBox">
+              <input formControlName = "zip" type="text" name="estado" id="estado" class="inputUser" required>
+              <label for="estado" class="labelInput">CEP</label>
+          </div><br>
+
+            <div class="inputBox">
+              <input formControlName = "district" type="text" name="endereco" id="endereco" class="inputUser" required>
+              <label for="endereco" class="labelInput">Bairro</label>
+          </div><br>
+
+                <p>Sexo:</p>
+                <input formControlName = "sex" type="radio" id="feminino" name="genero" value="feminino" required>
+                <label for="feminino">Feminino</label>
+                <br>
+                <input formControlName = "sex" type="radio" id="masculino" name="genero" value="masculino" required>
+                <label for="masculino">Masculino</label>
+                <br>
+                <input formControlName = "sex" type="radio" id="outro" name="genero" value="outro" required>
+                <label for="outro">Outro</label>
+                <br><br>
+
+                <div class="inputBox">
+                    <input formControlName = "city" type="text" name="cidade" id="cidade" class="inputUser" required>
+                    <label for="city" class="labelInput">Cidade</label>
+                </div>
+                <br><br>
+                <div class="inputBox">
+                    <input formControlName = "state" type="text" name="estado" id="estado" class="inputUser" required>
+                    <label for="estado" class="labelInput">Estado</label>
+                </div>
+
+                <br>
+
+                <button pButton type="button" label="Cadastrar" (click)="save()" class="p-button-success"></button>
+                {{'  '}}
+                <button href="" pButton type="button" label="Procurar" (click)="list()" class="p-button-warning"></button>
+                {{ '  ' }}
+            </fieldset>
+        </form>
+    </div>
+    <div *ngIf="exibir">
+      <table>
+        <tr>
+          <th>
+            Nome:
+          </th>
+          <th>
+            Sobrenome:
+          </th>
+          <th>
+            Sexo:
+          </th>
+          <th>
+            Data de Nascimento:
+          </th>
+          <th>
+            Cargo:
+          </th>
+          <th>
+            Endereço:
+          </th>
+          <th>
+            Número:
+          </th>
+          <th>
+            CEP:
+          </th>
+          <th>
+            Bairro:
+          </th>
+          <th>
+            Cidade:
+          </th>
+          <th>
+            Estado:
+          </th>
+        </tr>
+        <tr *ngFor="let usuario of usuarios">
+      <td>
+        {{usuario.firstname}}
+      </td>
+      <td>
+        {{usuario.lastname}}
+      </td>
+      <td>
+        {{usuario.sex}}
+      </td>
+      <td>
+        {{usuario.dateofbirth}}
+      </td>
+      <td>
+        {{usuario.office}}
+      </td>
+      <td>
+        {{usuario.address}}
+      </td>
+      <td>
+        {{usuario.number}}
+      </td>
+      <td>
+        {{usuario.zip}}
+      </td>
+      <td>
+        {{usuario.district  }}
+      </td>
+      <td>
+        {{usuario.city}}
+      </td>
+      <td>
+        {{usuario.state}}
+      </td>
+
+
+      </tr>
+      </table>
+      </div>
+  </body>
+</html>
+
+
+
+<!-- <form id="f" [formGroup]="appForm">
+
+
+
+  <div class="p-fluid p-formgrid p-grid">
+    <div class="p-field p-col-12 p-md-6">
+        <label for="firstname">Nome</label>
+        <input formControlName = "firstname" id="firstname" type="text" pInputText>
+    </div>
+    <div class="p-field p-col-12 p-md-6">
+        <label for="lastname">Sobrenome</label>
+        <input formControlName = "lastname" id="lastname" type="text" pInputText>
+    </div>
+
+
+  <div class="p-field p-col-12 p-md-6">
+    <label for="city">Cargo</label>
+    <input formControlName = "office" id="office" type="text" pInputText>
+ </div>
+
+ <div class="p-field p-col-12 p-md-6">
+  <label for="city">Data de nascimento</label>
+  <input formControlName = "dateofbirth" id="dateofbirth" type="calendar" pInputText>
+</div>
+
+<div class="p-field p-col-12 p-md-6">
+  <label for="city">Endereço</label>
+  <input formControlName = "address" id="address" type="text" pInputText>
+</div>
+
+
+    <div class="p-field p-col-12 p-md-6">
+      <label for="city">Número</label>
+      <input formControlName = "number" id="number" type="text" pInputText>
+   </div>
+
+   <div class="p-field p-col-12 p-md-6">
+    <label for="city">Bairro</label>
+    <input formControlName = "district" id="district" type="text" pInputText>
+ </div>
+
+   <div class="p-field p-col-12 p-md-3">
+    <label for="zip">CEP</label>
+    <input  formControlName = "zip" id="zip" type="text" pInputText>
+</div>
+
+   <div class="p-field p-col-12 p-md-6">
+    <label for="city">Cidade</label>
+    <input formControlName = "city" id="city" type="text" pInputText>
+ </div>
+
+ <div class="p-field p-col-12 p-md-6">
+  <label for="city">Estado</label>
+  <input formControlName = "state" id="city" type="text" pInputText>
+</div>
+
+ <!-- <div class="p-field p-col-12 p-md-3">
+    <label for="state">Estado</label>
+    <p-dropdown formControlName = "state" inputId="state" [options]="states" [(ngModel)]="selectedState" placeholder="Select" optionLabel="name"></p-dropdown>
+ </div> -->
+ <!-- </div>
+
+
+</form>
+
+</body>
+
+
+<section id="button">
+<ng-container >
+<button pButton type="button" label="Cadastrar" (click)="save()" class="p-button-success"></button>
+{{'  '}}
+<button pButton type="button" label="Procurar" (click)="list()" class="p-button-warning"></button>
+{{ '  ' }}
+<button pButton type="button" label="Editar" class="p-button-danger"></button>
+<div *ngIf="exibir">
+<table>
+  <tr>
+    <th>
+      Nome:
+    </th>
+    <th>
+      Sobrenome:
+    </th>
+    <th>
+      Data de Nascimento:
+    </th>
+  </tr>
+  <tr *ngFor="let usuario of usuarios">
+<td>
+  {{usuario.firstname}}
+</td>
+<td>
+  {{usuario.lastname}}
+</td>
+
+</tr>
+</table>
+</div>
+</ng-container>
+
+</section> --> -->
